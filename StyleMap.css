@@ -1,0 +1,13 @@
+.mapContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /*
+     * Despite giving an error in VSCode, it works as intended on the web page:
+     * https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting/Using_CSS_nesting
+     */
+    a {
+        color: rgb(46, 46, 46);
+    }
+}
