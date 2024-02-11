@@ -5,27 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Главна страница</title>
-    <link rel="stylesheet" href="../StyleMain.css">
-    <link rel="stylesheet" href="../StyleMap.css">
+    <link rel="stylesheet" href="../style/style-main.php">
+    <link rel="stylesheet" href="../style/style-map.php">
     <!--External font-->
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100&display=swap" rel="stylesheet">
 </head>
 <body>
-    <p style="text-align: right; font-size: 1.5rem; margin: 1vw 2vw 0vw 0vw;">
-        <a href="../Index.html">BG/EN</a>
-    </p>
 
-    <header>
-        <h1>Terabyte Inc.™</h1>
-    </header>
-    
-    <nav>
-        <img src="../images/logo.png">
-        <a href="./Index.html">Главна страница</a> |
-        <a href="./Store.html">Магазин</a> |
-        <a href="./Register.html">Регистрация</a> |
-        <a href="./Login.html">Влизане</a>
-    </nav>
+    <?php include "../Templates/header-bg.php"?>
+
+    <?php include "../Templates/navbar-bg.php"?>
+
 
     <div class="mainContent">
         <h3>За нас</h3>

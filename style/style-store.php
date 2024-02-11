@@ -1,3 +1,13 @@
+<?php
+/*** set the content type header ***/
+/*** Without this header, it wont work ***/
+header("Content-type: text/css");
+
+
+# $php-variable = 'something';
+
+/* <?=$php-variable?> */
+?>
 /* the store items */
 .mainContent {
     display: grid;
