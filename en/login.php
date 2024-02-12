@@ -13,31 +13,33 @@
 <body>
 
     <?php include "../Templates/header.php" ?>
-    
+
     <?php include "../Templates/navbar.php" ?>
 
     <div class="mainContent">
-        <h3>Log in</h3>
+        <h1>Log in</h1>
+        <form action="/login" method="PUT" class="loginForm">
+            <label for="username">Username</label><br>
+            <input type="text" id="username" name="username" required><br>
+            <label for="password">Password</label><br>
+            <input type="password" id="password" name="password" required><br>
+
+            <div class="formRow">
+                <input type="checkbox" id="show_password" checked="false">
+                <label for="show_password">Show Password</label>
+            </div>
+
+            <button type="submit">Login</button>
+        </form>
     </div>
-    <form action="/login" method="PUT" class="loginForm">
-        <label for="username">Username</label><br>
-        <input type="text" id="username" name="username" required><br>
-        <label for="password">Password</label><br>
-        <input type="password" id="password" name="password" required><br>
 
-        <div class="formRow">
-            <input type="checkbox" id="show_password" checked="false">
-            <label for="show_password">Show Password</label>
-        </div>
-
-        <button type="submit">Login</button>
-    </form>
+    <?php include "../Templates/footer.php" ?>
 
     <script>
     // Uncheck the checkbox when the page loads
     document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("show_password").checked = false;
-        
+
         // Add event listener to toggle password visibility
         document.getElementById("show_password").addEventListener("change", function() {
             var passwordInput = document.getElementById("password");
@@ -50,6 +52,6 @@
         });
     });
     </script>
-    
+
 </body>
 </html>

@@ -9,7 +9,7 @@ header("Content-type: text/css");
 /* <?=$php-variable?> */
 ?>
 /* the store items */
-.mainContent {
+.storeRow {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     justify-content: center;

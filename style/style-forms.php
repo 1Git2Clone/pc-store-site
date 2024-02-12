@@ -9,6 +9,7 @@ header("Content-type: text/css");
 /* <?=$php-variable?> */
 ?>
 .registerForm, .loginForm {
+    margin: 4.5rem 0px;
     display: grid;
     justify-items: center;
     justify-content: center;

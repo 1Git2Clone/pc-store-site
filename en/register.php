@@ -17,23 +17,25 @@
     <?php include "../Templates/navbar.php" ?>
 
     <div class="mainContent">
-        <h3>Register</h3>
+        <h1>Register</h1>
+        <form action="/register" method="PUT" class="registerForm">
+            <label for="username">Username</label><br>
+            <input type="text" id="username" name="username" required><br>
+            <label for="password">Password</label><br>
+            <input type="password" id="password" name="password" required><br>
+            <label for="confirm_password">Confirm Password</label><br>
+            <input type="password" id="confirm_password" name="confirm_password" required><br>
+
+            <div class="formRow">
+                <input type="checkbox" id="show_password" checked="false">
+                <label for="show_password">Show Password</label>
+            </div>
+
+            <button type="submit">Register</button>
+        </form>
     </div>
-    <form action="/register" method="PUT" class="registerForm">
-        <label for="username">Username</label><br>
-        <input type="text" id="username" name="username" required><br>
-        <label for="password">Password</label><br>
-        <input type="password" id="password" name="password" required><br>
-        <label for="confirm_password">Confirm Password</label><br>
-        <input type="password" id="confirm_password" name="confirm_password" required><br>
 
-        <div class="formRow">
-            <input type="checkbox" id="show_password" checked="false">
-            <label for="show_password">Show Password</label>
-        </div>
-
-        <button type="submit">Register</button>
-    </form>
+    <?php include "../Templates/footer.php" ?>
 
     <script>
     // Uncheck the checkbox when the page loads
