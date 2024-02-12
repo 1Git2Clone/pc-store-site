@@ -1,5 +1,6 @@
 <?php
 
+<<<<<<< HEAD
 $curr_file = basename($_SERVER['SCRIPT_FILENAME']);
 $highest_dir = dirname($_SERVER['SCRIPT_FILENAME']);
 while (dirname($highest_dir) !== $highest_dir) {
@@ -70,6 +71,21 @@ if ($conn->connect_error) {
     die("$conn_failed" . $conn->connect_error);
 }
 
+=======
+// Database connection parameters
+$servername = "localhost";
+$username = "your_username";
+$password = "your_password";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+>>>>>>> parent of 6145dc8 (Login system and QoL)
 // Create database if it doesn't exist
 $createDatabaseQuery = "CREATE DATABASE IF NOT EXISTS your_database_name";
 if ($conn->query($createDatabaseQuery) === TRUE) {
@@ -87,6 +103,7 @@ $createTableQuery = "CREATE TABLE IF NOT EXISTS your_table_name (
     name VARCHAR(32) UNIQUE,
     password VARCHAR(128)
 )";
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 /* if ($conn->query($createTableQuery) === TRUE) { */
@@ -154,10 +171,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $stmt->close();
 =======
+=======
+>>>>>>> parent of 6145dc8 (Login system and QoL)
 if ($conn->query($createTableQuery) === TRUE) {
     echo "Table created successfully or already exists";
 } else {
     echo "Error creating table: " . $conn->error;
+<<<<<<< HEAD
+>>>>>>> parent of 6145dc8 (Login system and QoL)
+=======
 >>>>>>> parent of 6145dc8 (Login system and QoL)
 }
 
