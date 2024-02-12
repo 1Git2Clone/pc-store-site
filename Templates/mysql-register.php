@@ -1,6 +1,4 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
 
 $curr_file = basename($_SERVER['SCRIPT_FILENAME']);
 $highest_dir = dirname($_SERVER['SCRIPT_FILENAME']);
@@ -60,36 +58,36 @@ function isValidUsername($str) {
 }
 
 // Database connection parameters
-$dbservername = "localhost";
-$dbusername = "root";
-$dbpassword = "ligma"; /* Yeah, very funny. For anyone using this repo in prod, please hide this. */
+$servername = "localhost";
+$username = "your_username";
+$password = "your_password";
 
-$conn = new mysqli($dbservername, $dbusername, $dbpassword);
+// Create connection
+$conn = new mysqli($servername, $username, $password);
 
+// Check connection
 if ($conn->connect_error) {
     die($conn_failed . $conn->connect_error);
 }
 
-
-/* UNCOMMENT THE QUERIES IF YOUR DB/TABLE DOESN'T EXIST */
-
-
-$createDatabaseQuery = "CREATE DATABASE IF NOT EXISTS pc_store";
-/* if ($conn->query($createDatabaseQuery) === TRUE) { */
-/*     echo "Database created successfully or already exists<br>"; */
-/* } else { */
-/*     echo "Error creating database: " . $conn->error; */
-/* } */
+// Create database if it doesn't exist
+$createDatabaseQuery = "CREATE DATABASE IF NOT EXISTS your_database_name";
+if ($conn->query($createDatabaseQuery) === TRUE) {
+    echo "Database created successfully or already exists<br>";
+} else {
+    echo "Error creating database: " . $conn->error;
+}
 
 // Select the database
-$conn->select_db("pc_store");
+$conn->select_db("your_database_name");
 
 // Create table if it doesn't exist
-$createTableQuery = "CREATE TABLE IF NOT EXISTS users (
+$createTableQuery = "CREATE TABLE IF NOT EXISTS your_table_name (
     id INT(8) PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(32) UNIQUE,
     password VARCHAR(128)
 )";
+<<<<<<< HEAD
 
 /* if ($conn->query($createTableQuery) === TRUE) { */
 /*     echo "Table created successfully or already exists<br>"; */
@@ -155,13 +153,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     $stmt->close();
+=======
+if ($conn->query($createTableQuery) === TRUE) {
+    echo "Table created successfully or already exists";
+} else {
+    echo "Error creating table: " . $conn->error;
+>>>>>>> parent of 6145dc8 (Login system and QoL)
 }
-
-/* if ($conn->query($createTableQuery) === TRUE) { */
-/*     echo "Table created successfully or already exists"; */
-/* } else { */
-/*     echo "Error creating table: " . $conn->error; */
-/* } */
 
 // Close connection
 $conn->close();

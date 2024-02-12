@@ -14,6 +14,7 @@
 
     <?php include "../Templates/header-bg.php"?>
 
+<<<<<<< HEAD
     <?php include "../Templates/navbar.php"?>
 
 
@@ -22,6 +23,14 @@
         <h1>Регистрация</h1>
         <form action="" method="POST" class="registerForm">
             <label for="username">Потребителско име</label><br>
+=======
+    <?php include "../Templates/navbar-bg.php"?>
+
+    <div class="mainContent">
+        <h1>Регистрация</h1>
+        <form action="/register" method="PUT" class="registerForm">
+            <label for="username">Username</label><br>
+>>>>>>> parent of 6145dc8 (Login system and QoL)
             <input type="text" id="username" name="username" required><br>
             <label for="password">Парола</label><br>
             <input type="password" id="password" name="password" required><br>

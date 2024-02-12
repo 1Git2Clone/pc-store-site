@@ -1,6 +1,3 @@
-<?php
-$LANGUAGE = "en";
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,12 +16,9 @@ $LANGUAGE = "en";
 
     <?php include "../Templates/navbar.php" ?>
 
-
-
-
     <div class="mainContent">
         <h1>Register</h1>
-        <form action="" method="POST" class="registerForm">
+        <form action="/register" method="PUT" class="registerForm">
             <label for="username">Username</label><br>
             <input type="text" id="username" name="username" required><br>
             <label for="password">Password</label><br>
@@ -38,7 +32,6 @@ $LANGUAGE = "en";
             </div>
 
             <button type="submit">Register</button>
-            <?php include "../Templates/mysql-register.php"; ?>
         </form>
     </div>
 

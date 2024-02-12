@@ -1,6 +1,3 @@
-<?php
-$LANGUAGE = "bg";
-?>
 <!DOCTYPE html>
 <html lang="bg">
 <head>
@@ -16,7 +13,7 @@ $LANGUAGE = "bg";
 <body>
     <?php include "../Templates/header-bg.php" ?>
 
-    <?php include "../Templates/navbar.php" ?>
+    <?php include "../Templates/navbar-bg.php" ?>
 
     <div class="mainContent">
         <h1>Артикули</h1>
