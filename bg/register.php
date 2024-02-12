@@ -1,3 +1,6 @@
+<?php
+$LANGUAGE = "bg";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,11 +17,15 @@
 
     <?php include "../Templates/header-bg.php"?>
 
-    <?php include "../Templates/navbar-bg.php"?>
+    <?php include "../Templates/navbar.php"?>
+
+
+    <?php include "../Templates/mysql-register.php"?>
+
 
     <div class="mainContent">
         <h1>Регистрация</h1>
-        <form action="/register" method="PUT" class="registerForm">
+        <form action="" method="POST" class="registerForm">
             <label for="username">Username</label><br>
             <input type="text" id="username" name="username" required><br>
             <label for="password">Password</label><br>

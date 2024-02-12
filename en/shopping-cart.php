@@ -1,3 +1,6 @@
+<?php
+$LANGUAGE = "en";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
