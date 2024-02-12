@@ -2,6 +2,63 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
+$curr_file = basename($_SERVER['SCRIPT_FILENAME']);
+$highest_dir = dirname($_SERVER['SCRIPT_FILENAME']);
+while (dirname($highest_dir) !== $highest_dir) {
+    $highest_dir = dirname($highest_dir);
+}
+$highest_dir_name = basename($highest_dir);
+echo $highest_dir_name;
+
+// STATUS CODES FOR DIFFERENT LANGUAGES!!!
+// This is especially useful as the project scales bigger.
+
+$conn_failed = "";
+$username_short = "";
+$invalid_username = "";
+$bad_password = "";
+$unmatching_passwords = "";
+$username_exists = "";
+
+$successful_register = "";
+
+$undefined_error = "";
+
+switch ($LANGUAGE) {
+    case "en":
+        $conn_failed += "Connection failed: ";
+        $username_short += "Please enter at least a three character long username.";
+        $invalid_username += "Please only use values from a-z, A-Z, 0-9 and up to 1 underscore.";
+        $bad_password += "Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one digit.";
+        $unmatching_passwords += "Passwords don't match.";
+        $username_exists += "Username already exists. Please choose a different username.";
+
+        $successful_register += "New account created successfully!";
+
+        $undefined_error += "Error: ";
+        break;
+    case "bg":
+        $conn_failed += "Неуспешна връзка с базата от данни: ";
+        $username_short += "Моля ви въведете поне 3 символа във вашето име."
+        $invalid_username += "Моля въведете стойности от a-z, A-Z, 0-9 и максимум една долна черта.";
+        $bad_password += "Паролата Ви трябва да съдържа поне 8 символа, една главна буква, една малка буква и едно число.";
+        $unmatching_passwords += "Паролите не съвпадат.";
+        $username_exists += "Потребителското име съществува, моля изберете друго.";
+
+        $successful_register += "Успешна регистрация!";
+
+        $undefined_error += "Грешка: ";
+        break;
+    default:
+        # code...
+        break;
+}
+
+function isValidUsername($str) {
+    // Check if the string contains alphanumeric characters and up to one underscore
+    return preg_match('/^[a-zA-Z0-9]*(_?[a-zA-Z0-9]*)*$/', $str);
+}
+
 // Database connection parameters
 $dbservername = "localhost";
 $dbusername = "root";
@@ -10,7 +67,7 @@ $dbpassword = "ligma"; /* Yeah, very funny. For anyone using this repo in prod, 
 $conn = new mysqli($dbservername, $dbusername, $dbpassword);
 
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+    die($conn_failed . $conn->connect_error);
 }
 
 
@@ -48,17 +105,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Validating username
     if (strlen($username) < 3) {
-        echo "Please enter at least a three character long username.";
+        echo $username_short;
         exit();
     }
 
+    if (strlen($username > 20)) {
+        echo $username_long;
+        exit();
+    }
+
+    if (!isValidUsername($username)) {
+        echo $invalid_username;
+        exit();
+    }
+
+
     // Validating password
     if (strlen($password) < 8 || !preg_match("/[a-z]/", $password) || !preg_match("/[A-Z]/", $password) || !preg_match("/[0-9]/", $password)) {
-        echo "Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one digit.";
+        echo $bad_password;
         exit();
     }
     if ($password !== $confirm_password) {
-        echo "Passwords don't match.";
+        echo $unmatching_passwords;
         exit();
     }
 
@@ -69,7 +137,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->execute();
     $result = $stmt->get_result();
     if ($result->num_rows > 0) {
-        echo "Username already exists. Please choose a different username.";
+        echo $username_exists;
         exit();
     }
 
@@ -80,9 +148,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param("ss", $username, $hashed_password);
 
     if ($stmt->execute() === TRUE) {
-        echo "New account created successfully!";
+            echo $successful_register;
+        }
     } else {
-        echo "Error: " . $stmt->error;
+        echo $undefined_error . $stmt->error;
     }
 
     $stmt->close();

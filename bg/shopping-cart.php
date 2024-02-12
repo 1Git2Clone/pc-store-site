@@ -2,7 +2,7 @@
 $LANGUAGE = "bg";
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bg">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">

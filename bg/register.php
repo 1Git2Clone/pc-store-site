@@ -1,8 +1,5 @@
-<?php
-$LANGUAGE = "bg";
-?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bg">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,17 +17,15 @@ $LANGUAGE = "bg";
     <?php include "../Templates/navbar.php"?>
 
 
-    <?php include "../Templates/mysql-register.php"?>
-
 
     <div class="mainContent">
         <h1>Регистрация</h1>
         <form action="" method="POST" class="registerForm">
-            <label for="username">Username</label><br>
+            <label for="username">Потребителско име</label><br>
             <input type="text" id="username" name="username" required><br>
-            <label for="password">Password</label><br>
+            <label for="password">Парола</label><br>
             <input type="password" id="password" name="password" required><br>
-            <label for="confirm_password">Confirm Password</label><br>
+            <label for="confirm_password">Потвърди паролата</label><br>
             <input type="password" id="confirm_password" name="confirm_password" required><br>
 
             <div class="formRow">
@@ -39,6 +34,7 @@ $LANGUAGE = "bg";
             </div>
 
             <button type="submit">Register</button>
+            <?php include "../Templates/mysql-register.php"?>
         </form>
     </div>
 
