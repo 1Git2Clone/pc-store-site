@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="../style/style-main.php">
+    <link rel="stylesheet" href="../style/style-forms.php">
     <!--External font-->
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100&display=swap" rel="stylesheet">
 </head>
@@ -18,6 +19,37 @@
     <div class="mainContent">
         <h3>Log in</h3>
     </div>
+    <form action="/login" method="PUT" class="loginForm">
+        <label for="username">Username</label><br>
+        <input type="text" id="username" name="username" required><br>
+        <label for="password">Password</label><br>
+        <input type="password" id="password" name="password" required><br>
+
+        <div class="formRow">
+            <input type="checkbox" id="show_password" checked="false">
+            <label for="show_password">Show Password</label>
+        </div>
+
+        <button type="submit">Login</button>
+    </form>
+
+    <script>
+    // Uncheck the checkbox when the page loads
+    document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById("show_password").checked = false;
+        
+        // Add event listener to toggle password visibility
+        document.getElementById("show_password").addEventListener("change", function() {
+            var passwordInput = document.getElementById("password");
+
+            if (this.checked) {
+                passwordInput.type = "text";
+            } else {
+                passwordInput.type = "password";
+            }
+        });
+    });
+    </script>
     
 </body>
 </html>
