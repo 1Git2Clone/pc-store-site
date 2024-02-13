@@ -11,9 +11,9 @@ echo
         </div>
         <div class='footerElement'>
             <p>
-                Авторски права © 2024<br>
-                За работа: <b>contacts@terabyte.com</b><br>
-                За технически проблеми: <b>support@terabyte.com</b>
+                © 2024<br>
+                For work-related inquries: <b>contacts@terabyte.com</b><br>
+                For technical support: <b>support@terabyte.com</b>
             </p>
         </div>
         <div class='footerElement' style='justify-content: center;'>

@@ -18,7 +18,7 @@
 
     <div class="mainContent">
         <h1>Register</h1>
-        <form action="" method="POST" class="registerForm">
+        <form method="POST" class="registerForm">
             <label for="username">Username</label><br>
             <input type="text" id="username" name="username" required><br>
             <label for="password">Password</label><br>
@@ -32,7 +32,7 @@
             </div>
 
             <button type="submit">Register</button>
-            <?php include "..\Templates\mysql-register.php" ?>
+            <?php include "../Templates/mysql-register.php" ?>
         </form>
     </div>
 

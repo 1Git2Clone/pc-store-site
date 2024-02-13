@@ -1,19 +1,18 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
-<<<<<<< HEAD
 $curr_file = basename($_SERVER['SCRIPT_FILENAME']);
-$highest_dir = dirname($_SERVER['SCRIPT_FILENAME']);
-while (dirname($highest_dir) !== $highest_dir) {
-    $highest_dir = dirname($highest_dir);
-}
-$highest_dir_name = basename($highest_dir);
-echo $highest_dir_name;
+$lang_dir = basename(dirname($_SERVER['SCRIPT_FILENAME']));
+// echo "<br>$lang_dir<br>";
 
 // STATUS CODES FOR DIFFERENT LANGUAGES!!!
 // This is especially useful as the project scales bigger.
 
 $conn_failed;
 $username_short;
+$username_long;
 $invalid_username;
 $bad_password;
 $unmatching_passwords;
@@ -23,10 +22,11 @@ $successful_register;
 
 $undefined_error;
 
-switch ($highest_dir_name) {
+switch ($lang_dir) {
     case "en":
         $conn_failed = "Connection failed: ";
         $username_short = "Please enter at least a three character long username.";
+        $username_long = "Please enter a username that's shorter than 20 symbols.";
         $invalid_username = "Please only use values from a-z, A-Z, 0-9 and up to 1 underscore.";
         $bad_password = "Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one digit.";
         $unmatching_passwords = "Passwords don't match.";
@@ -38,7 +38,8 @@ switch ($highest_dir_name) {
         break;
     case "bg":
         $conn_failed = "Неуспешна връзка с базата от данни: ";
-        $username_short = "Моля ви въведете поне 3 символа във вашето име."
+        $username_short = "Моля въведете поне 3 символа във вашето име.";
+        $username_long = "Моля въведете по-малко от 20 символа във вашето име.";
         $invalid_username = "Моля въведете стойности от a-z, A-Z, 0-9 и максимум една долна черта.";
         $bad_password = "Паролата Ви трябва да съдържа поне 8 символа, една главна буква, една малка буква и едно число.";
         $unmatching_passwords = "Паролите не съвпадат.";
@@ -60,8 +61,8 @@ function isValidUsername($str) {
 
 // Database connection parameters
 $servername = "localhost";
-$username = "your_username";
-$password = "your_password";
+$username = "root";
+$password = "ligma";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password);
@@ -71,46 +72,33 @@ if ($conn->connect_error) {
     die("$conn_failed" . $conn->connect_error);
 }
 
-=======
-// Database connection parameters
-$servername = "localhost";
-$username = "your_username";
-$password = "your_password";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
->>>>>>> parent of 6145dc8 (Login system and QoL)
 // Create database if it doesn't exist
-$createDatabaseQuery = "CREATE DATABASE IF NOT EXISTS your_database_name";
+$createDatabaseQuery = "CREATE DATABASE IF NOT EXISTS pc_store";
+/*
 if ($conn->query($createDatabaseQuery) === TRUE) {
     echo "Database created successfully or already exists<br>";
 } else {
     echo "Error creating database: " . $conn->error;
 }
+*/
 
 // Select the database
-$conn->select_db("your_database_name");
+$conn->select_db("pc_store");
 
 // Create table if it doesn't exist
-$createTableQuery = "CREATE TABLE IF NOT EXISTS your_table_name (
+$createTableQuery = "CREATE TABLE IF NOT EXISTS users (
     id INT(8) PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(32) UNIQUE,
     password VARCHAR(128)
 )";
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-/* if ($conn->query($createTableQuery) === TRUE) { */
-/*     echo "Table created successfully or already exists<br>"; */
-/* } else { */
-/*     echo "Error creating table: " . $conn->error; */
-/* } */
+/*
+if ($conn->query($createTableQuery) === TRUE) {
+    echo "Table created successfully or already exists<br>";
+} else {
+    echo "Error creating table: " . $conn->error;
+}
+*/
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Extracting password
@@ -121,28 +109,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Validating username
     if (strlen($username) < 3) {
         echo "$username_short";
-        exit();
+        return;
     }
 
-    if (strlen($username > 20)) {
+    if (strlen($username) > 20) {
         echo "$username_long";
-        exit();
+        return;
     }
 
     if (!isValidUsername($username)) {
         echo "$invalid_username";
-        exit();
+        return;
     }
 
 
     // Validating password
     if (strlen($password) < 8 || !preg_match("/[a-z]/", $password) || !preg_match("/[A-Z]/", $password) || !preg_match("/[0-9]/", $password)) {
         echo "$bad_password";
-        exit();
+        return;
     }
     if ($password !== $confirm_password) {
         echo "$unmatching_passwords";
-        exit();
+        return;
     }
 
     // Check if username already exists...
@@ -153,37 +141,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $result = $stmt->get_result();
     if ($result->num_rows > 0) {
         echo "$username_exists";
-        exit();
+        return;
     }
 
     // Generate password hash (we store data SAFELY!)
     $hashed_password = password_hash($password, PASSWORD_ARGON2I);
 
     $stmt = $conn->prepare("INSERT INTO users (name, password) VALUES (?, ?)");
+    if (!$stmt) {
+        echo "$undefined_error" . $conn->error;
+        return;
+    }
     $stmt->bind_param("ss", $username, $hashed_password);
 
-    if ($stmt->execute() === TRUE) {
-            echo "$successful_register";
-        }
-    } else {
-        echo "$undefined_error" . $stmt->error;
-    }
+    echo "$successful_register";
 
-    $stmt->close();
-=======
-=======
->>>>>>> parent of 6145dc8 (Login system and QoL)
-if ($conn->query($createTableQuery) === TRUE) {
-    echo "Table created successfully or already exists";
-} else {
-    echo "Error creating table: " . $conn->error;
-<<<<<<< HEAD
->>>>>>> parent of 6145dc8 (Login system and QoL)
-=======
->>>>>>> parent of 6145dc8 (Login system and QoL)
+    // Close connection
+    $conn->close();
+
 }
-
-// Close connection
-$conn->close();
-
-?>
+?>  
