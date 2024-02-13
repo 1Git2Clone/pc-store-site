@@ -31,7 +31,7 @@ switch ($lang_dir) {
         break;
 }
 
-if(session_status() == PHP_SESSION_NONE) {
+if(isset($_SESSION['username'])) {
     echo "$already_logged_in <u>" . $_SESSION['username'] . "</u>";
     return; // save resources bwuh.
 }
@@ -65,11 +65,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // "password_verify hashes it with argon2 for you." - Chat Gippidy
         if (password_verify($password, $stored_password)) {
             // Password is correct, login successful
-            if(session_status() == PHP_SESSION_NONE) {
+            if(!isset($_SESSION['username'])) {
                 $_SESSION['username'] = $username;
                 echo "$successful_login";
-                session_start();
-            } 
+                if(session_status() == PHP_SESSION_NONE) {
+                    session_start();
+                }
+                sleep(1);
+                header("Location: index.php");
+            }
         } else {
             // Incorrect password
             echo "$incorrect_login";
