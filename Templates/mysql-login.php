@@ -31,7 +31,7 @@ switch ($lang_dir) {
         break;
 }
 
-if(session_status() != PHP_SESSION_NONE) {
+if(session_status() == PHP_SESSION_NONE) {
     echo "$already_logged_in <u>" . $_SESSION['username'] . "</u>";
     return; // save resources bwuh.
 }
