@@ -17,7 +17,6 @@
 
     <div class="mainContent">
         <h1>Артикули</h1>
-
     </div>
 
     <?php include "../Templates/footer-bg.php" ?>

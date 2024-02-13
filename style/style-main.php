@@ -72,7 +72,8 @@ nav img {
 h1, h2, h3 {
   text-align: center;
 }
-.mainContent h3 {
+h3 {
+    margin: 0;
     background-color: rgb(20, 20, 20);
 }
 

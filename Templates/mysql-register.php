@@ -148,11 +148,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $hashed_password = password_hash($password, PASSWORD_ARGON2I);
 
     $stmt = $conn->prepare("INSERT INTO users (name, password) VALUES (?, ?)");
+    $stmt->bind_param("ss", $username, $hashed_password);
     if (!$stmt) {
         echo "$undefined_error" . $conn->error;
         return;
     }
-    $stmt->bind_param("ss", $username, $hashed_password);
+
+    // After checking for your silly inputs and attempts for SQL injections
+    // And other stupid shit like using a NULL password or a 1 character password
+    // We FINALLY execute your query.
+    $stmt->execute();
 
     echo "$successful_register";
 
@@ -160,4 +165,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn->close();
 
 }
-?>  
+?>

@@ -18,7 +18,7 @@
 
     <div class="mainContent">
         <h1>Влизане</h1>
-        <form action="/login" method="PUT" class="loginForm">
+        <form method="POST" class="loginForm">
             <label for="username">Username</label><br>
             <input type="text" id="username" name="username" required><br>
             <label for="password">Password</label><br>
@@ -30,6 +30,7 @@
             </div>
 
             <button type="submit">Login</button>
+            <?php include "../Templates/mysql-login.php"?>
         </form>
     </div>
 
