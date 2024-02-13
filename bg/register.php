@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Регистрация</title>
+    <title>Register</title>
     <link rel="stylesheet" href="../style/style-main.php">
     <link rel="stylesheet" href="../style/style-forms.php">
     <!--External font-->
@@ -12,13 +12,13 @@
 </head>
 <body>
 
-    <?php include "../Templates/header-bg.php"?>
+    <?php include "../Templates/header.php" ?>
 
-    <?php include "../Templates/navbar-bg.php"?>
+    <?php include "../Templates/navbar.php" ?>
 
     <div class="mainContent">
-        <h1>Регистрация</h1>
-        <form action="/register" method="PUT" class="registerForm">
+        <h1>Register</h1>
+        <form action="" method="POST" class="registerForm">
             <label for="username">Username</label><br>
             <input type="text" id="username" name="username" required><br>
             <label for="password">Password</label><br>
@@ -32,10 +32,11 @@
             </div>
 
             <button type="submit">Register</button>
+            <?php include "..\Templates\mysql-register.php" ?>
         </form>
     </div>
 
-    <?php include "../Templates/footer-bg.php" ?>
+    <?php include "../Templates/footer.php" ?>
 
     <script>
     // Uncheck the checkbox when the page loads
