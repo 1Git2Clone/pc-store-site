@@ -2,13 +2,13 @@
 
 An online store site for my school.
 
-It uses the PHP + Apache + MySQL stack.
-I run it on Linux but it works with XAMPP just fine as well.
+It uses the **PHP** + **Apache** + **MySQL** stack.
+I run it on Arch Linux with the **LAMP** stack but it works with the **XAMPP** stack just fine as well.
 
 ## Setting up
 
-- The database schemas are set up in the code for `/Templates/mysql-register.php`
-- You'll also need to confirm the `MySQL` username and password from `/Templates/mysql-register.php` AND `/Templates/mysql-login.php`
+- The database schemas are set up in the code for `/Templates/mysql-register.php` so you needn't worry about that.
+- You'll need to confirm the `MySQL` username and password from `/Templates/mysql-register.php` AND `/Templates/mysql-login.php`
 
 ### Windows w/ `XAMPP`:
   - You need to install [`XAMPP`](https://www.apachefriends.org/download.html) (`apachefriends.org`)
@@ -16,7 +16,7 @@ I run it on Linux but it works with XAMPP just fine as well.
   - In your browser: go to `http:\\localhost\`
   - Then with Apache you just need to head to your directory.
 
-### For Arch Linux with LAMP (useful for other distros but can be a bit different):
+### For Arch Linux with `LAMP` (useful for other distros but can be a bit different):
 - Dependencies (all are **extra** packages with their package names) (`sudo pacman -S package-name`):
   - **apache** [package](https://archlinux.org/packages/extra/x86_64/apache/) (**archlinux.org**)
   - **mariadb** [package](https://wiki.archlinux.org/title/MariaDB) (**archlinux.org**)
@@ -54,4 +54,6 @@ I run it on Linux but it works with XAMPP just fine as well.
 
 ### Additional notes:
 
-This site is incomplete, the shopping cart system doesn't work. Additionally, don't bother with doing PRs on it since I don't plan on adding the full functionality. The reasoning is that this was originally a homework task from my web design teacher and I decided to add up on it with basic session management and decided to make the code publicly accessible as well as give details on setting it up with a LAMP stack (the one I use), since originally, I thought about setting it up with the **LEMP** stack (**E** = **EngineX** (**nginx**) ) but the file management was messy (after days of configuring i got the site to work but without image accessing) and I decided to ditch it and use Apache.
+This site is incomplete, the shopping cart system doesn't work. Additionally, don't bother with doing PRs on it since I don't plan on adding the full functionality. The reasoning is that this was originally a homework task from my web design teacher and I decided to add up on it with basic session management and decided to make the code publicly accessible as well as give details on setting it up with a LAMP stack (the one I use), since originally, I thought about setting it up with the **LEMP** stack (**E** = **EngineX** (**nginx**) ) but the file management was messy (after days of configuring i got the site to work but without image accessing) and I decided to ditch it and use Apache (skill issue probably).
+
+A lot of the code is **ChatGPT** generated. After the **nginx** hurdles I couldn't bother writing a lot on my own and quite heavily relied on the AI for it.
