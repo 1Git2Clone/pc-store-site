@@ -1,13 +1,3 @@
-<?php
-/*** set the content type header ***/
-/*** Without this header, it wont work ***/
-header("Content-type: text/css");
-
-
-# $php-variable = 'something';
-
-/* <?=$php-variable?> */
-?>
 .registerForm, .loginForm {
     margin: 4.5rem 0px;
     display: grid;

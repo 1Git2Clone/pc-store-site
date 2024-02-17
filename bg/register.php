@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
-    <link rel="stylesheet" href="../style/style-main.php">
-    <link rel="stylesheet" href="../style/style-forms.php">
+    <link rel="stylesheet" href="../style/style-main.css">
+    <link rel="stylesheet" href="../style/style-forms.css">
     <!--External font-->
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100&display=swap" rel="stylesheet">
 </head>

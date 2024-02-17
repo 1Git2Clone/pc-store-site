@@ -1,0 +1,9 @@
+.mapContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.mapContainer a {
+    color: rgb(46, 46, 46);
+}
