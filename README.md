@@ -7,9 +7,8 @@ I run it on Linux but it works with XAMPP just fine as well.
 
 ## Setting up
 
-- To set up the database & table schemas:
-  - You need to uncomment the `CREATE DATABASE IF NOT EXISTS` & `CREATE TABLE IF NOT EXISTS` parts of `/Templates/mysql-register.php`
-- You'll also need to confirm the MySQL username and password from `/Templates/mysql-register.php` AND `/Templates/mysql-login.php`
+- The database schemas are set up in the code for `/Templates/mysql-register.php`
+- You'll also need to confirm the `MySQL` username and password from `/Templates/mysql-register.php` AND `/Templates/mysql-login.php`
 
 ### Windows w/ `XAMPP`:
   - You need to install [`XAMPP`](https://www.apachefriends.org/download.html) (`apachefriends.org`)
