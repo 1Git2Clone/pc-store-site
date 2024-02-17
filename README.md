@@ -21,7 +21,7 @@ I run it on Linux but it works with XAMPP just fine as well.
   - **apache** [package](https://archlinux.org/packages/extra/x86_64/apache/) (**archlinux.org**)
   - **mariadb** [package](https://wiki.archlinux.org/title/MariaDB) (**archlinux.org**)
   - **php** [package](https://archlinux.org/packages/extra/x86_64/php/) (**archlinux.org**) and **php-fpm** (optional) [package](https://archlinux.org/packages/extra/x86_64/php-fpm/) (**archlinux.org**)
-****    - **phpmyadmin** [package](https://archlinux.org/packages/extra/any/phpmyadmin/) (**archlinux.org**)
+  - **phpmyadmin** [package](https://archlinux.org/packages/extra/any/phpmyadmin/) (**archlinux.org**)
   - *Full command:*
     - `sudo pacman -S apache mariadb php php-fpm phpmyadmin`
 
