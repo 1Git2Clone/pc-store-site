@@ -22,8 +22,9 @@ I run it on Arch Linux with the **LAMP** stack but it works with the **XAMPP** s
   - **mariadb** [package](https://wiki.archlinux.org/title/MariaDB) (**archlinux.org**)
   - **php** [package](https://archlinux.org/packages/extra/x86_64/php/) (**archlinux.org**) and **php-fpm** (optional) [package](https://archlinux.org/packages/extra/x86_64/php-fpm/) (**archlinux.org**)
   - **phpmyadmin** [package](https://archlinux.org/packages/extra/any/phpmyadmin/) (**archlinux.org**)
-  - *Full command:*
-    - `sudo pacman -S apache mariadb php php-fpm phpmyadmin`
+  - *Full commands:*
+    - `sudo pacman -S apache mariadb php phpmyadmin` (required)
+    - `sudo pacman -S apache mariadb php php-fpm phpmyadmin` (optional)
 
 - [Apache HTTP Server](https://wiki.archlinux.org/title/Apache_HTTP_Server) (`archlinux.org`) in `/etc/httpd/conf/httpd.conf`:
   - `ServerRoot` should be `/etc/httpd`
