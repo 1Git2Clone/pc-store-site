@@ -70,8 +70,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo "$successful_login";
                 if(session_status() == PHP_SESSION_NONE) {
                     session_start();
+                    /* sleep(1); */
                 }
-                sleep(1);
                 header("Location: index.php");
             }
         } else {

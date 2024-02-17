@@ -1,27 +1,11 @@
-<?php
-/*** set the content type header ***/
-/*** Without this header, it wont work ***/
-header("Content-type: text/css");
-
-/* https://www.freecodecamp.org/news/how-to-keep-your-footer-where-it-belongs-59c6aa05c59c/ */
-
-$footer_height = "250px";
-$footer_padding = "0.3rem";
-$border_width = "2px";
-$body_margin = "8px";
-# $php-variable = 'something';
-
-/* <?=$php-variable?> */
-?>
-
 body {
     background-color: rgb(46, 46, 46);
     color: rgb(245, 245, 245);
     font-family: 'JetBrains Mono', monospace; /* Google fonts */
 
-    border: <?=$border_width ?> solid white;
+    border: 2px solid white;
     position: relative;
-    margin: <?=$body_margin ?>;
+    margin: 8px;
     min-height: 100vh;
 }
 
@@ -66,7 +50,7 @@ nav img {
 }
 
 .mainContent {
-    padding-bottom: <?=$footer_height ?>;
+    padding-bottom: 250px;
 }
 
 h1, h2, h3 {
@@ -84,11 +68,11 @@ p {
 
 footer {
 
-    height: <?=$footer_height ?>;
+    height: 250px;
     position: absolute;
     bottom: 0;
-    padding: <?=$footer_padding ?>;
-    width: calc(100% - <?=$border_width ?> - <?=$footer_padding ?> * 2);
+    padding: 0.3rem;
+    width: calc(100% - 8px - 0.3rem * 2);
 
     display: grid;
     align-items: center;
