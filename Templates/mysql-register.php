@@ -74,6 +74,7 @@ if ($conn->connect_error) {
 
 // Create database if it doesn't exist
 $createDatabaseQuery = "CREATE DATABASE IF NOT EXISTS pc_store";
+$conn->query($createDatabaseQuery);
 /*
 if ($conn->query($createDatabaseQuery) === TRUE) {
     echo "Database created successfully or already exists<br>";
@@ -91,6 +92,7 @@ $createTableQuery = "CREATE TABLE IF NOT EXISTS users (
     name VARCHAR(32) UNIQUE,
     password VARCHAR(128)
 )";
+$conn->query($createTableQuery);
 
 /*
 if ($conn->query($createTableQuery) === TRUE) {
