@@ -23,8 +23,14 @@ I run it on Arch Linux with the **LAMP** stack but it works with the **XAMPP** s
   - **php** [package](https://archlinux.org/packages/extra/x86_64/php/) (**archlinux.org**) and **php-fpm** (optional) [package](https://archlinux.org/packages/extra/x86_64/php-fpm/) (**archlinux.org**)
   - **phpmyadmin** [package](https://archlinux.org/packages/extra/any/phpmyadmin/) (**archlinux.org**)
   - *Full commands:*
-    - `sudo pacman -S apache mariadb php phpmyadmin` (required)
-    - `sudo pacman -S apache mariadb php php-fpm phpmyadmin` (optional)
+    - Required:
+      ```
+      sudo pacman -S apache mariadb php phpmyadmin
+      ```
+    - Optional
+      ```
+      sudo pacman -S apache mariadb php php-fpm phpmyadmin
+      ```
 
 - [Apache HTTP Server](https://wiki.archlinux.org/title/Apache_HTTP_Server) (`archlinux.org`) in `/etc/httpd/conf/httpd.conf`:
   - `ServerRoot` should be `/etc/httpd`
@@ -35,11 +41,23 @@ I run it on Arch Linux with the **LAMP** stack but it works with the **XAMPP** s
         SetHandler "proxy:unix:/run/php-fpm/php-fpm.sock|fcgi://localhost/"
     </FilesMatch>
     ```
-  - And don't forget to enable the service: `sudo systemctl enable php-fpm --now`
-  - Optional: check if the service is `active(running)` - `sudo systemctl status php-fpm`
+  - And don't forget to enable the service:
+    ```
+    sudo systemctl enable php-fpm --now
+    ```
+  - Optional - check if the service is `active(running)`:
+    ```
+    sudo systemctl status php-fpm
+    ```
 
 - Enabling the Apache (**httpd**) service
-  - `sudo systemctl enable httpd --now` (you can also check the status with `sudo systemctl status httpd`)
+  ```
+  sudo systemctl enable httpd --now
+  ```
+  - You can also check the status with
+    ```
+    sudo systemctl status httpd
+    ```
   - **NOTE:** On some distros the service management and names for the Apache service may vary.
 
 - For **MariaDB** and **phpMyAdmin** respectively
