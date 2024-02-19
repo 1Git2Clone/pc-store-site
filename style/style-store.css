@@ -1,17 +1,33 @@
 /* the store items */
 .storeRow {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     justify-content: center;
     justify-items: center;
+}
 
-    h3 {
-        text-align: center;
-    }
-
+.storeRow h3 {
+    text-align: center;
 }
 
 .storeItem {
     max-width: 250px;
     height: auto;
+
+    padding: 20px;
+    margin: 10px;
+    border: 2px solid rgba(0, 0, 0, 0.3);
+
+    background-color: rgba(0, 0, 0, 0);
+
+    transition: 0.25s ease-in-out;
+}
+
+.storeItem li {
+  margin-left: 22px;
+  max-width: 230px;
+}
+
+.storeItem:hover {
+    background-color: rgba(0, 0, 0, 0.3);
 }

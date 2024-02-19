@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(46, 46, 46);
+    background-color: rgb(20, 20, 20);
     color: rgb(245, 245, 245);
     font-family: 'JetBrains Mono', monospace; /* Google fonts */
 
@@ -32,10 +32,12 @@ a:visited {
 nav {
     background-color: rgb(36, 36, 36);
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     justify-content: center;
     justify-items: center;
     align-items: center;
+}
+nav {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 nav a {
     text-align: center;
@@ -50,34 +52,76 @@ nav img {
 }
 
 .mainContent {
-    padding-bottom: 250px;
+    padding-bottom: 300px;
+    background-color: rgb(46, 46, 46);
 }
 
 h1, h2, h3 {
+  margin: 0;
+  padding: 20px 0;
   text-align: center;
 }
 h3 {
-    margin: 0;
     background-color: rgb(20, 20, 20);
 }
 
+.mainContent p {
+  text-align: center;
+}
 p {
-  text-align: justified;
+  text-align: justify;
+}
+
+.listedCompanies {
+    background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.01) 10%, rgba(136, 136, 136, 1) 100%, rgba(0, 0, 0, 0.01) 90%);
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    padding: 10px 0;
+
+    border: 0.25rem solid rgba(0, 0, 0, 0.8);
+}
+.listedCompanies img {
+  max-height: 3rem;
+  max-width: 75vw;
+  padding: 15px;
+
+  border-radius: 10px;
+
+  margin: 5px 10px;
+
+  transition: 0.25s ease-in-out;
+
+  border: 2px solid rgba(0, 0, 0, 0.4);
+
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.listedCompanies img:hover {
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 
 footer {
 
-    height: 250px;
+    margin-top: 30px;
+
+
+    height: 300px;
     position: absolute;
     bottom: 0;
     padding: 0.3rem;
-    width: calc(100% - 8px - 0.3rem * 2);
+    width: calc(100% - 0.3rem * 2);
 
     display: grid;
     align-items: center;
     justify-content: center;
     background-color: rgb(20, 20, 20);
+
+    box-shadow: 0px 0px 40px black;
 }
 footer a {
     padding: 0.5rem;

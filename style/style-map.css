@@ -3,7 +3,10 @@
     align-items: center;
     justify-content: center;
     text-align: center;
+
+    margin: 0 0 50px 0;
 }
 .mapContainer a {
     color: rgb(46, 46, 46);
+    width: 0;
 }
